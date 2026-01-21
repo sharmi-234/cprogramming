@@ -1,0 +1,157 @@
+1#include <stdio.h>
+
+int main() {
+    int units;
+    float cost_per_unit = 5.0;   // Rs. 5 per unit
+    float total;
+
+    printf("Enter the number of units: ");
+    scanf("%d", &units);
+
+    total = units * cost_per_unit;     // base cost
+    total = total + (total * 0.18);    // add 18% GST
+
+    printf("Total cost = Rs. %.2f\n", total);
+
+    return 0;
+}
+2#include <stdio.h>
+
+int main() {
+    int s1, s2, s3, s4, s5, total;
+    float average;
+
+    printf("Enter marks of 5 subjects:\n");
+    scanf("%d %d %d %d %d", &s1, &s2, &s3, &s4, &s5);
+
+    total = s1 + s2 + s3 + s4 + s5;
+    average = total / 5.0;
+
+    printf("Total = %d\n", total);
+    printf("Average = %.2f\n", average);
+
+    return 0;
+}
+3#include <stdio.h>
+
+int main() {
+    int length, width;
+    int area;
+
+    printf("Enter length: ");
+    scanf("%d", &length);
+
+    printf("Enter width: ");
+    scanf("%d", &width);
+
+    area = length * width;
+
+    printf("Area of rectangle = %d", area);
+
+    return 0;
+}
+4)#include <stdio.h>
+
+int main() {
+    int choice;
+    
+    printf("Enter a number (1 for Tamil, 2 for English, 3 for Hindi): ");
+    scanf("%d", &choice);
+
+    if (choice == 1) {
+        printf("Tamil\n");
+    } else if (choice == 2) {
+        printf("English\n");
+    } else if (choice == 3) {
+        printf("Hindi\n");
+    } else {
+        printf("Invalid input\n");
+    }
+
+    return 0;
+}   
+5#include <stdio.h>
+
+int main() {
+    int pin, attempts = 0;
+    float balance = 1000.00;
+
+    while (attempts < 3) {
+        printf("Enter PIN:");
+        scanf("%d", &pin);
+        if (pin == 1234) {
+            printf("Correct PIN!\n");
+            printf("Balance: Rs. %.2f\n", balance);
+            float amt;
+            printf("Enter withdrawal amount: ");
+            scanf("%f", &amt);
+            if (amt <= balance) {
+                balance -= amt;
+                printf("Withdrawn: Rs. %.2f\n", amt);
+            } else {
+                printf("Insufficient balance!\n");
+            }
+            break;
+        } else {
+            attempts++;
+            printf("Wrong PIN! %d attempts left.\n", 3 - attempts);
+        }
+    }
+    if (attempts == 3) {
+        printf("Card blocked!\n");
+    }
+    return 0;
+} 
+6#include <stdio.h>
+
+int main() {
+    int a1, a2, a3, a4, a5;
+    float average;
+
+    printf("Enter 5 ages:\n");
+    scanf("%d %d %d %d %d", &a1, &a2, &a3, &a4, &a5);
+
+    average = (a1 + a2 + a3 + a4 + a5) / 5.0;
+
+    printf("Average age = %d\n", average);
+
+    return 0;
+}
+6#include <stdio.h>
+
+int main() {
+    int students, subjects;
+ printf("Enter number of students: ");
+    scanf("%d", &students);
+    printf("Enter number of subjects: ");
+    scanf("%d", &subjects);
+
+    int marks[students][subjects]; 
+    int total;
+    float average;
+
+    
+    for (int i = 0; i < students; i++) {
+        printf("\nEnter marks for Student %d:\n", i + 1);
+        for (int j = 0; j < subjects; j++) {
+            printf("  Subject %d: ", j + 1);
+            scanf("%d", &marks[i][j]);
+        }
+    }
+
+    
+    printf("\n--- Student Marks Statement ---\n");
+    for (int i = 0; i < students; i++) {
+        total = 0;
+        for (int j = 0; j < subjects; j++) {
+            total += marks[i][j];
+        }
+        average = (float)total / subjects;
+        printf("Student %d -> Total: %d, Average: %.2f\n", i + 1, total, average);
+    }
+
+    return 0;
+}
+
+
+  
