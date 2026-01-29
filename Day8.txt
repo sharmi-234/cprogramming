@@ -79,5 +79,140 @@ int main() {
      printf("NULL");
     return 0;
 }
+#include<stdio.h>
+int pinnumber=1403;
+    int pin, balance = 100000, wd,rd,attempts=3;
+    int check()
+    {
+        printf("Welcome to the ATM\n");
+    while(attempts>0)
+    {
+        printf("Enter the PIN :",pin);
+        scanf("%d",&pin);
+        if(pin==pinnumber)
+        {
+            printf("The Pin is correct\n");
+            printf("Enter the withdrawal amount\n");
+            scanf("%d",&wd);
+            if(wd<=balance)
+            {
+              printf("Transaction sucessfull\n");
+              balance = balance - wd;
+              printf("The remaining balance is %d",balance);
+              return 0;
+            }}
+        else
+            {
+             printf("Incorrect pin");
+          attempts--;
+            }
+    }
+    printf("Card is blocked");
+    }
+int main()
+{
+    check();
+}
+PROBLEM 1:
 
+#include <stdio.h>
+#include<stdlib.h>
+struct customer
+{
+    int acnum;
+    long int con;
+    struct customer*next;
+};
+
+int main() {
+  struct customer *ct1 = (struct customer*)malloc(sizeof(struct customer));
+  struct customer *ct2= (struct customer*)malloc(sizeof(struct customer));
+  scanf("%d",&ct1->acnum);
+  scanf("%d",&ct1->con);
+   scanf("%d",&ct2->acnum);
+  scanf("%d",&ct2->con);
+  ct1->next=ct2;
+  ct2->next=NULL;
+  struct customer *head = ct1;
+  while(head != NULL)
+  {
+      printf("%d-%ld->",head->acnum,head->con);
+      head = head->next;
+  }
+  printf("NULL");
+  return 0;
+}
+
+
+PROBLEM 2:
+
+
+#include <stdio.h>
+#include<stdlib.h>
+struct student
+{
+    int roll;
+    char name[20];
+    char dept[20];
+    struct student*next;
+};
+
+int main() {
+  struct student *ct1 = (struct student*)malloc(sizeof(struct student));
+  struct student *ct2= (struct student*)malloc(sizeof(struct student));
+  scanf("%d",&ct1->roll);
+  scanf("%s",ct1->name);
+  scanf("%s",ct1->dept);
+   scanf("%d",&ct2->roll);
+  scanf("%s",ct2->name);
+  scanf("%s",ct2->dept);
+  ct1->next=ct2;
+  ct2->next=NULL;
+  struct student *head = ct1;
+  while(head != NULL)
+  {
+      printf("%d %s %s->",head->roll,head->name,head->dept);
+      head = head->next;
+  }
+  printf("NULL");
+  return 0;
+}
+
+
+PROBLEM 3:
+
+
+#include <stdio.h>
+#include<stdlib.h>
+struct orders
+{
+    int id;
+    char name[20];
+    int price;
+    char status[20];
+    struct orders*next;
+};
+
+int main() {
+  struct orders *ct1 = (struct orders*)malloc(sizeof(struct orders));
+  struct orders *ct2= (struct orders*)malloc(sizeof(struct orders));
+  scanf("%d",&ct1->id);
+  scanf("%s",ct1->name);
+  scanf("%d",&ct1->price);
+  scanf("%s",ct1->status);
+   scanf("%d",&ct2->id);
+  scanf("%s",ct2->name);
+  scanf("%d",&ct2->price);
+  scanf("%s",ct2->status);
+  ct1->next=ct2;
+  ct2->next=NULL;
+  struct orders *head = ct1;
+  while(head != NULL)
+  {
+      printf("%d %s %d %s->",head->id,head->name,head->price,head->status);
+      head = head->next;
+  }
+  printf("NULL");
+  return 0;
+}
     
