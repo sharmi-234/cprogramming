@@ -1,0 +1,150 @@
+
+#include <stdio.h>
+#include<stdlib.h>
+struct contact{
+    long int number;
+    struct contact*next;
+    struct contact*previous;
+};
+
+int main() {
+    
+    struct contact*ct1=(struct contact*)malloc(sizeof(struct contact));
+    struct contact*ct2=(struct contact*)malloc(sizeof(struct contact));
+    struct contact*ct3=(struct contact*)malloc(sizeof(struct contact));
+    ct1->number=4567890145;
+    ct2->number=1234567890;
+    ct3->number=5678901345;
+    ct1->previous=NULL;
+    ct1->next=ct2;
+    ct2->previous=ct1;
+    ct2->next=ct3;
+    ct3->previous=ct2;
+    ct3->next=NULL;
+    
+struct contact *head=ct1;
+    
+    printf("Contact:\n");
+    while(head !=NULL){
+        printf("%ld---->",head->number);
+        head=head->next;
+    }
+    printf("finish");
+
+    return 0;
+}
+#include <stdio.h>
+#include<stdlib.h>
+struct contact
+{
+    long int number;
+    struct contact*prev;
+    struct contact*next;
+};
+
+int main() {
+  struct contact *head;
+  struct contact *ct1 = (struct contact*)malloc(sizeof(struct contact));
+  struct contact *ct2= (struct contact*)malloc(sizeof(struct contact));
+  struct contact *ct3 = (struct contact*)malloc(sizeof(struct contact));
+  scanf("%d",&ct1->number);
+  scanf("%d",&ct2->number);
+  scanf("%d",&ct3->number);
+  ct1->prev=NULL;
+  ct1->next=head;
+  head=ct1;
+  ct2->prev=ct1;
+  ct2->next=head;
+  head=ct2;
+  ct3->prev=ct2;
+  ct3->next=head;
+  head=ct3;
+  while(head != NULL)
+  {
+      printf("%ld->",head->number);
+      head = head->next;
+  }
+  printf("NULL");
+  return 0;
+}
+#include <stdio.h>
+#include<stdlib.h>
+struct contact{
+    long int number;
+     struct contact*prev;
+
+    struct contact*next;
+};
+
+int main() {
+    struct contact*head=NULL,*temp;
+    
+    struct contact *ct1=(struct contact*)malloc(sizeof(struct contact));
+    struct contact *ct2=(struct contact*)malloc(sizeof(struct contact));
+    struct contact *ct3=(struct contact*)malloc(sizeof(struct contact));
+    struct contact *newNode=(struct contact*)malloc(sizeof(struct contact));
+    ct1->number=10;
+    ct1->prev=NULL;
+    ct1->next=ct2;
+    ct2->number=20;
+    ct2->prev=ct1;
+    ct2->next=ct3;
+    ct3->number=30;
+    ct3->prev=ct2;
+    ct3->next=NULL;
+head=ct1;
+    newNode->number=5;
+    newNode->prev=NULL;
+    newNode->next=head;
+    newNode->prev=newNode;
+    head=newNode;
+     temp=head;
+    while(temp !=NULL){
+        printf("%ld",temp->number);
+        if(temp->next !=NULL){
+            printf("->");
+        
+    }
+    temp=temp->next;
+    }
+    
+
+    return 0;
+}
+#include<stdio.h>
+#include<stdlib.h>
+struct music
+{
+  int songid;
+  struct music *prev;
+  struct music *next;
+};
+
+int main() 
+{
+    struct music *head=NULL,*temp;
+    int m[3]={10,20,30};
+    for(int i=0;i<3;i++)
+    {
+        struct music *newn=(struct music*)malloc(sizeof(struct music));
+        newn->songid=m[i];
+        newn->next=head;
+        newn->prev=NULL;
+        if(head!=NULL)
+        {
+            head->prev=newn;
+        }
+        head=newn;
+    }
+    temp=head;
+    while(temp!=NULL)
+    {
+        printf("%d",temp->songid);
+        temp=temp->next;
+        if(temp!=NULL)
+        {
+            printf("<>");
+        }
+    }
+    return 0;
+}
